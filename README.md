@@ -10,13 +10,13 @@ Infitary HBI3 (Reprap Prusa I3 clone)
 
 Seems to be similar to 'Anet A3', '[Alunar M508](https://github.com/camalot/alunar-prusa-i3-marlin-i3-firmware)' and 'Aworldnet Havit A602'
 
-![](https://github.com/laroo/infitary-hbi3-prusa-i3-marlin-firmware/raw/master/assets/printer-infitary-hbi3.jpg)
+![](https://github.com/laroo/Infitary-HBI3-Marlin-Firmware/raw/master/assets/printer-infitary-hbi3.jpg)
 
 ### Board
 
 LSEE 3D v1.0 board
 
-![](https://github.com/laroo/infitary-hbi3-prusa-i3-marlin-firmware/raw/master/assets/mainboard-lsee-3d-v1.0.jpg)
+![](https://github.com/laroo/Infitary-HBI3-Marlin-Firmware/raw/master/assets/mainboard-lsee-3d-v1.0.jpg)
 
 ### Specifications
 
