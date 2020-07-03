@@ -23,7 +23,8 @@ setup-arduino-cli:
 	curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=$(ROOT_DIR)/bin sh
 	$(ARDUINO_CLI) config init
 	$(ARDUINO_CLI) core update-index
-	$(ARDUINO_CLI) core install arduino:avr@1.6.11
+	#$(ARDUINO_CLI) core install arduino:avr@1.6.11
+	$(ARDUINO_CLI) core install arduino:avr@1.8.3
 
 
 .PHONY: clean
@@ -32,7 +33,7 @@ clean:
 
 .PHONY: compile
 compile:
-	$(ARDUINO_CLI) compile --build-path $(BUILD_DIR) --fqbn arduino:avr:mega $(SKETCH)
+	$(ARDUINO_CLI) compile -v --build-path $(BUILD_DIR) --fqbn arduino:avr:mega $(SKETCH)
 
 
 .PHONY: extract
