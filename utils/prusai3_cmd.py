@@ -9,7 +9,6 @@ import serial
 
 from cmd import Cmd
 
-
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -31,7 +30,7 @@ class SerialCmd(Cmd):
         response = ''
         while self.printer.in_waiting > 0:
             response += self.printer.readline()
-            #time.sleep(0.5)
+            # time.sleep(0.5)
 
         return response
 
@@ -46,7 +45,6 @@ class SerialCmd(Cmd):
         '''Move to origin the printer head'''
         self.printer.write('G28\n')
         response = self.printer.readline()
-
         print(response)
 
     def do_sdcard(self, args):
@@ -65,15 +63,15 @@ def set_special_baudrate(fd, baudrate):
     TCSETS2 = 0x402C542B
     BOTHER = 0o010000
     CBAUD = 0o010017
-    buf = array.array('i', [0] * 64) # is 44 really
+    buf = array.array('i', [0] * 64)  # is 44 really
     fcntl.ioctl(fd, TCGETS2, buf)
     buf[2] &= ~CBAUD
     buf[2] |= BOTHER
     buf[9] = buf[10] = baudrate
-    assert(fcntl.ioctl(fd, TCSETS2, buf)==0)
+    assert (fcntl.ioctl(fd, TCSETS2, buf) == 0)
     fcntl.ioctl(fd, TCGETS2, buf)
     if buf[9] != baudrate or buf[10] != baudrate:
-        print("failed. speed is %d %d" % (buf[9],buf[10]))
+        print("failed. speed is %d %d" % (buf[9], buf[10]))
         sys.exit(1)
 
 
@@ -87,21 +85,24 @@ def open_serial(device_path='/dev/ttyUSB0', baudrate=250000):
     logger.info('please wait, the device will reset in a few seconds')
     # we need to wait a little bit to allow the port to be opened
     # and the device to be reset
-    import time;time.sleep(5)
+    import time;
+    time.sleep(5)
 
     banner = "\n"
     while device.in_waiting > 0:
-        banner += device.readline()
+        buffer = device.readline()
+        banner += buffer.decode("utf-8") if buffer else ''
 
     logger.info('BANNER: %s' % banner)
 
     return device
 
+
 if __name__ == '__main__':
     device = open_serial()
 
     shell = SerialCmd(device)
-    shell.prompt = 'anet> '
+    shell.prompt = 'i3> '
     shell.cmdloop('starting...')
 
     device.close()

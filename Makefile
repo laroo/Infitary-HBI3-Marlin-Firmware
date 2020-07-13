@@ -31,9 +31,15 @@ setup-arduino-cli:
 clean:
 	rm -rfv $(ROOT_DIR)/build/*
 
+
 .PHONY: compile
 compile:
 	$(ARDUINO_CLI) compile -v --build-path $(BUILD_DIR) --fqbn arduino:avr:mega $(SKETCH)
+
+
+.PHONY: upload
+upload:
+	$(ARDUINO_CLI) upload -v -p /dev/ttyUSB0 --fqbn arduino:avr:mega $(SKETCH)
 
 
 .PHONY: extract
@@ -47,3 +53,5 @@ disassemble:
 	$(AVR_OBJDUMP) -D $(BUILD_DIR)/$(SKETCH).ino.elf > $(BUILD_DIR)/$(SKETCH).ino.elf.asm
 	$(AVR_OBJDUMP) -D -m avr6 $(BUILD_DIR)/$(SKETCH).ino.hex > $(BUILD_DIR)/$(SKETCH).ino.hex.asm
 	$(AVR_OBJDUMP) -D -m avr6 $(BUILD_DIR)/$(SKETCH).ino.with_bootloader.hex > $(BUILD_DIR)/$(SKETCH).ino.with_bootloader.hex.asm
+
+
