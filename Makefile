@@ -23,16 +23,23 @@ setup-arduino-cli:
 	curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=$(ROOT_DIR)/bin sh
 	$(ARDUINO_CLI) config init
 	$(ARDUINO_CLI) core update-index
-	$(ARDUINO_CLI) core install arduino:avr@1.6.11
+	#$(ARDUINO_CLI) core install arduino:avr@1.6.11
+	$(ARDUINO_CLI) core install arduino:avr@1.8.3
 
 
 .PHONY: clean
 clean:
 	rm -rfv $(ROOT_DIR)/build/*
 
+
 .PHONY: compile
 compile:
-	$(ARDUINO_CLI) compile --build-path $(BUILD_DIR) --fqbn arduino:avr:mega $(SKETCH)
+	$(ARDUINO_CLI) compile -v --build-path $(BUILD_DIR) --fqbn arduino:avr:mega $(SKETCH)
+
+
+.PHONY: upload
+upload:
+	$(ARDUINO_CLI) upload -v -p /dev/ttyUSB0 --fqbn arduino:avr:mega $(SKETCH)
 
 
 .PHONY: extract
@@ -46,3 +53,5 @@ disassemble:
 	$(AVR_OBJDUMP) -D $(BUILD_DIR)/$(SKETCH).ino.elf > $(BUILD_DIR)/$(SKETCH).ino.elf.asm
 	$(AVR_OBJDUMP) -D -m avr6 $(BUILD_DIR)/$(SKETCH).ino.hex > $(BUILD_DIR)/$(SKETCH).ino.hex.asm
 	$(AVR_OBJDUMP) -D -m avr6 $(BUILD_DIR)/$(SKETCH).ino.with_bootloader.hex > $(BUILD_DIR)/$(SKETCH).ino.with_bootloader.hex.asm
+
+
