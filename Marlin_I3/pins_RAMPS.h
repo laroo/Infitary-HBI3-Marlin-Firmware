@@ -55,11 +55,14 @@
 //
 // Servos
 //
-#ifdef IS_RAMPS_13
-  #define SERVO0_PIN        7   // RAMPS_13
-#else
-  #define SERVO0_PIN       11
-#endif
+
+#define SERVO0_PIN         19   // BLTouch
+//#ifdef IS_RAMPS_13
+//  #define SERVO0_PIN        7   // RAMPS_13
+//#else
+//  #define SERVO0_PIN       11
+//#endif
+
 #ifndef SERVO1_PIN
   #define SERVO1_PIN        6
 #endif
@@ -80,7 +83,7 @@
 #define Y_MIN_PIN          14
 #define Y_MAX_PIN          15
 #define Z_MIN_PIN          18
-#define Z_MAX_PIN          19
+//#define Z_MAX_PIN          19  BLTouch servo pin
 
 //
 // Z Probe (when not Z_MIN_PIN)
