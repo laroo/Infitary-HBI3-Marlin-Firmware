@@ -14,9 +14,10 @@ Seems to be similar to 'Anet A3', '[Alunar M508](https://github.com/camalot/alun
 
 ### Board
 
-LSEE 3D v1.0 board
+LSEE 3D v1.0 board (BLTouch upgrade)
 
-![](https://github.com/laroo/Infitary-HBI3-Marlin-Firmware/raw/master/assets/mainboard-lsee-3d-v1.0.jpg)
+![](https://github.com/laroo/Infitary-HBI3-Marlin-Firmware/raw/master/assets/mainboard-lsee-3d-v1.0-bltouch.jpg)
+
 
 ### Specifications
 
@@ -26,7 +27,7 @@ LSEE 3D v1.0 board
 | Model                                         | HBI3                                                   |
 | Structure                                     | Acrylic frame type                                     |
 | Print head number                             | 1                                                      |
-| Print the object size                         | 200*200*210mm                                          |
+| Print the object size                         | 200x200x210mm                                          |
 | Thickness accuracy                            | 0.1-0.4mm                                              |
 | Whether to support Offline Print              | yes                                                    |
 | Is there a display                            | yes                                                    |
@@ -45,9 +46,9 @@ LSEE 3D v1.0 board
 | Control software language                     | 13 languages(including, English, French Spanish, etc.) |
 | The number of data input                      | STL, OBJ, G-Code etc                                   |
 | Automatic support generation model            | Support                                                |
-| Machine size                                  | 510*400*415mm                                          |
+| Machine size                                  | 510x400x415mm                                          |
 | Machine weight                                | 8.5KG                                                  |
-| Package Size                                  | 500*350*200mm                                          |
+| Package Size                                  | 500x350x200mm                                          |
 | Package weight                                | 9.5KG                                                  |
 | Power supply/ maximum power consumption       | 220V/110V/180W                                         |
 | Operating System Support                      | XP, WIN7, MacOS                                        |
